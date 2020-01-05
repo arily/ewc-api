@@ -1,0 +1,20 @@
+{
+  "name": "ewc-api",
+  "version": "1.0.0",
+  "description": "api for ewc",
+  "main": "EApi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arily/ewc-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arily/ewc-api/issues"
+  },
+  "homepage": "https://github.com/arily/ewc-api#readme"
+}
