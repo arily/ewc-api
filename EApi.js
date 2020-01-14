@@ -13,6 +13,7 @@ class RequiredFieldMissingError extends Error {
     }
 }
 async function checkStatus(res, json) {
+    console.log(json);
     if (res.ok) { // res.status >= 200 && res.status < 300
         if (json.code == 40004);
         else return new EndpointServerSideError(json);
