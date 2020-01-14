@@ -28,7 +28,7 @@ function E(options) {
     this.options = options;
 }
 E.prototype.apiCall = async function(endpoint, options) {
-    let response = await fetch(encodeURIComponent(`http://api.osuwiki.cn:5005/api${endpoint}`), options)
+    let response = await fetch(`http://api.osuwiki.cn:5005/api${endpoint}`, options)
     let json = await response.json();
     checkStatus(response, json);
     return json;
