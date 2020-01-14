@@ -18,7 +18,7 @@ async function checkStatus(res, json) {
         if (res.status == 202) {
             if (json.code !== 40004) throw new EndpointServerSideError(json);
         } else {
-            if (50000 > json.code && json.code >= 40000 && code !== 40004) throw new EndpointServerSideError(json);
+            if (50000 > json.code && json.code >= 40000 && json.code !== 40004) throw new EndpointServerSideError(json);
         }
         return res;
     } else {
@@ -32,11 +32,7 @@ function E(options) {
 E.prototype.apiCall = async function(endpoint, options) {
     let response = await fetch(`http://api.osuwiki.cn:5005/api${encodeURIComponent(endpoint)}`, options)
     let json = await response.json();
-    try{
-        checkStatus(response, json);
-    } catch (e){
-        return Promise.reject(e);
-    }
+    checkStatus(response, json);
     
     return json;
 }
