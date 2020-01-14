@@ -67,17 +67,20 @@ E.prototype.ewc.getTeamRank = async function(rank, options) {
     return this.apiCall(`/ewc/get_team_rank/${rank}`, options);
 }
 E.prototype.ewc.join = async function(options) {
-    let { team_name, user_id } = options.body;
+    const params = Object.fromEntries(options.body);
+    let { team_name, user_id } = params;
     this.checkParamsDefined([team_name, user_id]);
     return this.apiCall(`/ewc/join`, Object.assign({ method: 'POST' }, options));
 }
 E.prototype.ewc.quit = async function(options) {
-    let { team_name, user_id } = options.body;
+    const params = Object.fromEntries(options.body);
+    let { team_name, user_id } = params;
     this.checkParamsDefined([team_name, user_id]);
     return this.apiCall(`/ewc/quit`, Object.assign({ method: 'POST' }, options));
 }
 E.prototype.ewc.register = async function(options) {
-    let { team_name } = options.body;
+    const params = Object.fromEntries(options.body);
+    let { team_name } = params;
     this.checkParamsDefined([team_name]);
     return this.apiCall(`/ewc/register`, Object.assign({ method: 'POST' }, options));
 }
