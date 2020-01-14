@@ -34,8 +34,10 @@ E.prototype.matchesPost = async function(options) {
     return this.apiCall(`/matches/`, Object.assign({ method: 'POST' }, options));
 }
 E.prototype.users = async function() {};
+E.prototype.ewc = async function() {};
 E.prototype.matches.__proto__ = E.prototype;
 E.prototype.users.__proto__ = E.prototype;
+E.prototype.ewc.__proto__ = E.prototype;
 E.prototype.matches.calculateElo = async function(options) {
 
     return this.apiCall('/matches/calc_elo', options);
@@ -46,5 +48,16 @@ E.prototype.users.elo = async function(userId, options) {
 E.prototype.users.recentPlay = async function(userId, options) {
     return this.apiCall(`/users/recentPlay/${userId}`, options);
 }
-
+E.prototype.ewc.getTeam = async function(teamName, options) {
+    return this.apiCall(`/ewc/get_team/${teamName}`, options);
+}
+E.prototype.ewc.join = async function(options) {
+    return this.apiCall(`/ewc/join`, Object.assign({ method: 'POST' }, options));
+}
+E.prototype.ewc.quit = async function(options) {
+    return this.apiCall(`/ewc/quit`, Object.assign({ method: 'POST' }, options));
+}
+E.prototype.ewc.register = async function(options) {
+    return this.apiCall(`/ewc/register`, Object.assign({ method: 'POST' }, options));
+}
 module.exports = E;
