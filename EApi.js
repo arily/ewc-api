@@ -13,12 +13,12 @@ class RequiredFieldMissingError extends Error {
     }
 }
 async function checkStatus(res, json) {
-
+    console.log(json.code);
     if (res.ok) { // res.status >= 200 && res.status < 300
         if (res.status == 202) {
             if (json.code !== 40004) throw new EndpointServerSideError(json);
         } else {
-            if (50000 > json.code && json.code >= 40000 && json.code !== 40004) throw new EndpointServerSideError(json);
+            if (50000 > json.code && json.code >= 40000) throw new EndpointServerSideError(json);
         }
         return res;
     } else {
