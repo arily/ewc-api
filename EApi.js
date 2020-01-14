@@ -32,7 +32,12 @@ function E(options) {
 E.prototype.apiCall = async function(endpoint, options) {
     let response = await fetch(`http://api.osuwiki.cn:5005/api${encodeURIComponent(endpoint)}`, options)
     let json = await response.json();
-    checkStatus(response, json);
+    try{
+        checkStatus(response, json);
+    } catch (e){
+        return Promise.reject(e);
+    }
+    
     return json;
 }
 E.prototype.matches = async function(matchID, options) {
